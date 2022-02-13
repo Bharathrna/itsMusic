@@ -1,0 +1,14 @@
+import axios from 'axios';
+import auth from '@react-native-firebase/auth';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+
+export const requestGoogleSignIn = async () => {
+
+    const { idToken } = await GoogleSignin.signIn();
+  
+    //Create a Google credential with the token
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+  
+    //Sign-in the user with the credential
+    return auth().signInWithCredential(googleCredential); 
+}
