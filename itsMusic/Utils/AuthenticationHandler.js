@@ -1,6 +1,6 @@
 import {authorize, refresh} from 'react-native-app-auth';
 
-//let SpotifyWebApi = require('spotify-web-api-node');
+let SpotifyWebApi = require('spotify-web-api-node');
 
 class AuthenticationHandler {
     constructor() {
@@ -46,23 +46,23 @@ class AuthenticationHandler {
 
 const authHandler = new AuthenticationHandler();
 
-// const scopes =  [
-//     'playlist-read-private',
-//     'playlist-modify-public',
-//     'playlist-modify-private',
-//     'user-library-read',
-//     'user-library-modify',
-//     'user-top-read',
-// ];
+const scopes =  [
+    'playlist-read-private',
+    'playlist-modify-public',
+    'playlist-modify-private',
+    'user-library-read',
+    'user-library-modify',
+    'user-top-read',
+];
 
-// const spotifyApi = new SpotifyWebApi({
-//     clientId: 'e478de7527cc4ff199243e089d5fb30a',
-//     clientSecret: 'f270d1c7004e47978e46e1b942832b5c',
-//     redirectUrl: 'com.itsmusic://oauthredirect',
-// });
+const spotifyApi = new SpotifyWebApi({
+    clientId: 'e478de7527cc4ff199243e089d5fb30a',
+    clientSecret: 'f270d1c7004e47978e46e1b942832b5c',
+    redirectUrl: 'com.itsmusic://oauthredirect',
+});
 
-// const authorizeURL = spotifyApi.createAuthorizeURL(scopes);
+const authorizeURL = spotifyApi.createAuthorizeURL(scopes);
 
-// console.log(authorizeURL);
+console.log(authorizeURL);
 
 export default authHandler;
